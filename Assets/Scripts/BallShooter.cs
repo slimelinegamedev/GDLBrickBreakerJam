@@ -5,6 +5,10 @@ public class BallShooter : MonoBehaviour
 {
     public float turnSpeed = 5f;
     public Rigidbody2D ball;
+    public float maxRot = 30f;
+    public float minRot = -30f;
+    public float rotka = 0;
+    private float timr = 1f;
     
 	void Start ()
     {
@@ -14,10 +18,32 @@ public class BallShooter : MonoBehaviour
 
 void Update () 
 {
+    //Checks for a liviung ball
+    timr -= Time.deltaTime;
+    Debug.Log(timr);
+    if(timr <= 0f)
+    {
+
+        if(GameObject.Find("ball(Clone)") == null)
+             {
+             GameOverlord.gameState = GameOverlord.GameState.shooting;
+            }
+    timr = 1f;
+            
+    }
+    
+    
 	if(GameOverlord.gameState == GameOverlord.GameState.shooting)
     {
-	 transform.Rotate(Vector3.back*Input.GetAxis("Horizontal")*Time.deltaTime*turnSpeed);
-     if(Input.GetButtonDown("Fire1"))
+        //Limited rotating
+        rotka += Input.GetAxis("Horizontal")*Time.deltaTime*turnSpeed;
+        rotka = Mathf.Clamp(rotka, minRot, maxRot);
+        transform.localRotation = Quaternion.AngleAxis(rotka, Vector3.forward);
+     
+        
+        
+        //Ball shooting
+        if(Input.GetButtonDown("Fire1"))
         {
         
            Rigidbody2D clone = Instantiate(ball,transform.position,transform.rotation) as Rigidbody2D;

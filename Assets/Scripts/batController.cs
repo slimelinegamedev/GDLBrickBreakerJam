@@ -14,6 +14,7 @@ public class BatController : MonoBehaviour
 
   void FixedUpdate()
    {
+  //Bat movement
   if(GameOverlord.gameState == GameOverlord.GameState.bouncing)
   {
     rigio.velocity = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"))*batSpeed;

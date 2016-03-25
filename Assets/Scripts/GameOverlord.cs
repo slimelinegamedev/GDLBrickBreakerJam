@@ -9,23 +9,47 @@ public class GameOverlord : MonoBehaviour
     public static GameState gameState;
     
     public static int playerScore = 0;
+    public int localBalls = 3;
     public static int numOfBalls = 3;
+    public static int numOfBricks;
     public Text scoreText;
     public Text ballText;
-	
-	void Start () 
+	private float timr = 1f;
+	void Start() 
     {
-	
+    numOfBalls = localBalls;
 	}
 	
 	
-	void Update () 
+	void Update() 
     {
+    timr -= Time.deltaTime;
     
+    if(timr <= 0f)
+    {   
+        //Checks for living balls
+        if(GameObject.Find("ball(Clone)") == null)
+             {
+             if(numOfBalls<= 0)
+                {
+                    UIOverlord.uiState = UIOverlord.UIState.GameOver;
+                }
+            }
+            if(numOfBricks <= 0)
+            {
+                UIOverlord.uiState = UIOverlord.UIState.Victory;
+            }
+           
+            
+        //Updates text info
+        scoreText.text = "Score: " + playerScore.ToString();
+        ballText.text = "Shots: " + numOfBalls.ToString();
+        timr = 1f;
+    
+    }
+        
+    }    
         
         
     
-	scoreText.text = "Score: " + playerScore.ToString();
-    ballText.text = "Shots: " + numOfBalls.ToString();
-	}
 }
