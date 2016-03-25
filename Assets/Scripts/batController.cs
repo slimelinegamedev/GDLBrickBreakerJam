@@ -1,20 +1,26 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-public class batController : MonoBehaviour
+public class BatController : MonoBehaviour
 {
     public float batSpeed = 5f;
     private Rigidbody2D rigio;
 
   void Start()
   {
-    rigio = this.GetComponent<Rigidbody2D>();
+    rigio = GetComponent<Rigidbody2D>();
   }
 
 
   void FixedUpdate()
    {
-    rigio.velocity = Vector2.up*Input.GetAxis("Vertical")*batSpeed;
-
+  if(GameOverlord.gameState == GameOverlord.GameState.bouncing)
+  {
+    rigio.velocity = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"))*batSpeed;
+  }else
+  {
+   rigio.velocity = Vector2.zero;   
+  }
+      
   }
 }
