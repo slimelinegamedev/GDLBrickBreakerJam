@@ -5,10 +5,12 @@ public class BatController : MonoBehaviour
 {
     public float batSpeed = 5f;
     private Rigidbody2D rigio;
+    private Animator anim;
 
   void Start()
   {
     rigio = GetComponent<Rigidbody2D>();
+    anim = GetComponent<Animator>();
   }
 
 
@@ -24,4 +26,17 @@ public class BatController : MonoBehaviour
   }
       
   }
+    
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        //Destroys brick on collision
+    if (col.gameObject.tag == "Ball")
+        {
+             if(!anim.GetCurrentAnimatorStateInfo(0).IsName("batHit")){
+                anim.SetTrigger("hit");
+                 }
+            
+        }
+
+    }
 }

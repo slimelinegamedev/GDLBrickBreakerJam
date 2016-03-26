@@ -1,0 +1,328 @@
+fileFormatVersion: 2
+guid: c25ef1c8110beee4a9bdb1a4ba4b5fdb
+timeCreated: 1459030047
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ButtonRedNormal
+    21300002: ButtonRedHighlight
+    21300004: ButtonRedDown
+    21300006: Bricks
+    21300008: Ball
+    21300010: Bat01
+    21300012: Bat02
+    21300014: Bat03
+    21300016: BrickNormal
+    21300018: BrickNormalDamaged
+    21300020: BrickMultiBall
+    21300022: BrickHeavy
+    21300024: BrickHeavyDamaged
+    21300026: BrickMultiballDamaged
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ButtonRedNormal
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -30}
+        - {x: -30, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: ButtonRedHighlight
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -30}
+        - {x: -30, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: ButtonRedDown
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 12, z: 12, w: 12}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -30}
+        - {x: -30, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: Bricks
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 32}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: Ball
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 960
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 31}
+        - {x: -29, y: 19}
+        - {x: -31, y: 14}
+        - {x: -31, y: -22}
+        - {x: -24, y: -32}
+        - {x: 20, y: -32}
+        - {x: 31, y: -25}
+        - {x: 31, y: 26}
+        - {x: 19, y: 31}
+    - name: Bat01
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 40, y: 29}
+        - {x: 33, y: 45}
+        - {x: 0, y: 45}
+        - {x: -48, y: 30}
+        - {x: -48, y: -18}
+        - {x: -13, y: -30}
+        - {x: 6, y: -23}
+        - {x: 7, y: -18}
+        - {x: 7, y: -16}
+        - {x: 7, y: -34}
+        - {x: 9, y: -36}
+        - {x: 21, y: -45}
+        - {x: 28, y: -45}
+        - {x: 36, y: -35}
+        - {x: 40, y: -14}
+    - name: Bat02
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 45}
+        - {x: -43, y: 24}
+        - {x: -48, y: 15}
+        - {x: -48, y: -18}
+        - {x: -13, y: -30}
+        - {x: 6, y: -23}
+        - {x: 7, y: -18}
+        - {x: 7, y: -16}
+        - {x: 7, y: -39}
+        - {x: 15, y: -45}
+        - {x: 31, y: -45}
+        - {x: 38, y: -26}
+        - {x: 38, y: 36}
+        - {x: 28, y: 45}
+    - name: Bat03
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 864
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 45}
+        - {x: -48, y: 21}
+        - {x: -48, y: -18}
+        - {x: -13, y: -30}
+        - {x: 6, y: -23}
+        - {x: 7, y: -18}
+        - {x: 7, y: -16}
+        - {x: 7, y: -34}
+        - {x: 9, y: -36}
+        - {x: 12, y: -45}
+        - {x: 24, y: -45}
+        - {x: 36, y: -38}
+        - {x: 36, y: 29}
+        - {x: 25, y: 45}
+    - name: BrickNormal
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 704
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 32}
+        - {x: -16, y: -32}
+        - {x: 13, y: -32}
+        - {x: 16, y: -29}
+        - {x: 16, y: 29}
+        - {x: 13, y: 32}
+    - name: BrickNormalDamaged
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 704
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 32}
+        - {x: -16, y: -32}
+        - {x: 13, y: -32}
+        - {x: 16, y: -29}
+        - {x: 16, y: 29}
+        - {x: 13, y: 32}
+    - name: BrickMultiBall
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 704
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 32}
+        - {x: -16, y: -32}
+        - {x: 13, y: -32}
+        - {x: 16, y: -29}
+        - {x: 16, y: 29}
+        - {x: 13, y: 32}
+    - name: BrickHeavy
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 704
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 32}
+        - {x: -16, y: -32}
+        - {x: 16, y: -32}
+        - {x: 16, y: 32}
+    - name: BrickHeavyDamaged
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 704
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 32}
+        - {x: -16, y: -32}
+        - {x: 16, y: -32}
+        - {x: 16, y: 32}
+    - name: BrickMultiballDamaged
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 704
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 32}
+        - {x: -16, y: -32}
+        - {x: 13, y: -32}
+        - {x: 16, y: -29}
+        - {x: 16, y: 29}
+        - {x: 13, y: 32}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

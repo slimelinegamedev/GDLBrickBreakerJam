@@ -8,6 +8,7 @@ public class BrickScript : MonoBehaviour
     public int ScoreAmount = 1;
     public int BrickHP = 1;
     public Rigidbody2D ball;
+    public Sprite dmgSprite;
     void Awake()
     {
         //On start incerease total number of bricks
@@ -17,17 +18,18 @@ public class BrickScript : MonoBehaviour
     
     void DestroyBrick()
     {
-     
+        BrickHP--;
+        gameObject.GetComponent<SpriteRenderer>().sprite = dmgSprite;
         if(this.brickType == BrickType.normal)
         {
-            BrickHP--;
+            
+            gameObject.GetComponent<SpriteRenderer>().sprite = dmgSprite;
             GameOverlord.playerScore += ScoreAmount;
 
         }
         //Spawns extra ball and adds total number of balls
         if(this.brickType == BrickType.extraBall)
         {
-        BrickHP--;
         GameOverlord.numOfBalls++;
         GameOverlord.playerScore += ScoreAmount;
         gameObject.GetComponent<Collider2D>().enabled = false;
@@ -40,8 +42,15 @@ public class BrickScript : MonoBehaviour
         //Destoys brick
         if(BrickHP <= 0)
         {
-        GameOverlord.numOfBricks--;
-        Destroy(gameObject);
+        StartCoroutine("DestroyLater");
         } 
+    }
+    
+    IEnumerator DestroyLater()
+    {
+    yield return new WaitForSeconds(0.25f);
+    GameOverlord.numOfBricks--;
+    Destroy(gameObject);
+    
     }
 }
