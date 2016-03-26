@@ -20,7 +20,6 @@ void Update ()
 {
     //Checks for a liviung ball
     timr -= Time.deltaTime;
-    Debug.Log(timr);
     if(timr <= 0f)
     {
 

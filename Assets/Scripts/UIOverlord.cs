@@ -5,19 +5,27 @@ using UnityEngine.SceneManagement;
 public class UIOverlord : MonoBehaviour 
 {
 
-    
-    public enum UIState{Playing,GameOver,Victory};
+    public static UIOverlord instanceOfUILord;
+    public enum UIState{MainMenu,Playing,GameOver,Victory};
     public static UIState uiState;
-    public static int UIAnimationState = 0;
     public Animator[] animtrons;
-    
+    public Scene curScene;
     
 
     
-    void Start()
-    {
-        UIOverlord.uiState = UIOverlord.UIState.Playing;
+    void Awake()
+    {   
+        if(instanceOfUILord == null)
+        {
+            instanceOfUILord = this;
+        }else
+        {
+            Destroy(gameObject);
+        }
+        
         hideUI();
+        UIOverlord.uiState = UIOverlord.UIState.MainMenu;
+        curScene = SceneManager.GetActiveScene();
     }
     
     
@@ -43,6 +51,13 @@ public class UIOverlord : MonoBehaviour
             animtrons[2].SetBool("hideScreen", false);
 
         }
+        //Shows MainMenu
+        if(uiState == UIState.MainMenu)
+        {
+            hideUI();
+            animtrons[3].SetBool("hideScreen", false);
+
+        }
        
     }
     //Fires hide animation on all UI panels
@@ -59,5 +74,40 @@ public class UIOverlord : MonoBehaviour
     {
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    public void StartLevel(string levelName)
+    {
+        StopCoroutine("loadLevelWaiter");    
+        StartCoroutine("loadLevelWaiter", levelName);
+    }
+    
+    IEnumerator loadLevelWaiter(string levelName)
+    {
+        yield return new WaitForSeconds(2f);
+        
+        Debug.Log("Loading");
+        //Zobrazit loading screen
+        yield return new WaitForSeconds(2f);
+        
+        AsyncOperation async = SceneManager.LoadSceneAsync(levelName,LoadSceneMode.Additive);
+        
+        while (!async.isDone) {
+            Debug.Log("Waiting to load");
+
+            yield return null;
+        }
+        yield return async;
+        //Schovat loading Screen
+        Debug.Log("Loading Complete");
+        
+        //Moves menu object to loaded level and unloads previous one.
+        SceneManager.MoveGameObjectToScene(this.gameObject, SceneManager.GetSceneByName(levelName));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(levelName));
+        Debug.Log(curScene.name);
+        SceneManager.UnloadScene(curScene.name);
+        curScene = SceneManager.GetActiveScene();
+        Debug.Log(curScene.name);
+        
     }
 }
