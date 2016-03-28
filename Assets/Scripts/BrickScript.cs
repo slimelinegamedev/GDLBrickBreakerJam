@@ -9,15 +9,22 @@ public class BrickScript : MonoBehaviour
     public int BrickHP = 1;
     public Rigidbody2D ball;
     public Sprite dmgSprite;
+    private Animator anim;
+    
     void Awake()
     {
         //On start incerease total number of bricks
        GameOverlord.numOfBricks++;
+        anim = gameObject.GetComponent<Animator>();
     }
     
-    
+    void OnCollisionEnter2D()
+    {
+    }
     void DestroyBrick()
     {
+        anim.SetTrigger("hit");
+
         BrickHP--;
         gameObject.GetComponent<SpriteRenderer>().sprite = dmgSprite;
         if(this.brickType == BrickType.normal)
@@ -48,6 +55,7 @@ public class BrickScript : MonoBehaviour
     
     IEnumerator DestroyLater()
     {
+    
     yield return new WaitForSeconds(0.25f);
     GameOverlord.numOfBricks--;
     Destroy(gameObject);

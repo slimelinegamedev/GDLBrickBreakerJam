@@ -10,17 +10,20 @@ public class BrickGenerator : MonoBehaviour
     public float yOffsef = 1f;
     public bool isMoving = false;
     public Vector3 targetPos;
-    
+
 	void Awake () {
     targetPos = transform.position;
-	GenerateRow(3);
-    
+    GenerateRow(3);
 
     isMoving = true;
 	}
 
     void Update()
-    {            
+    {
+        if(GameOverlord.numOfBricks <=BricksInRow/2)
+        {
+            GenerateRow(2);
+        }
 
         if(isMoving == true)
         {
@@ -50,10 +53,10 @@ public class BrickGenerator : MonoBehaviour
                 if(chance < 0.8f)
                 {
                 whichBrick = 0;    
-                }else if(chance < 0.9f && chance > 0.7f)
+                }else if(chance < 0.95f && chance > 0.7f)
                 {
                 whichBrick = 1;    
-                }else if(chance > .9f)
+                }else if(chance > .95f)
                 {
                 whichBrick = 2;    
                 }

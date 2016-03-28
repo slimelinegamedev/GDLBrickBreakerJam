@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameOverlord : MonoBehaviour 
 {
     
-    public enum GameState{bouncing,shooting};
+    public enum GameState{bouncing,shooting,done};
     public static GameState gameState;
     
     public static int playerScore = 0;
@@ -29,27 +29,29 @@ public class GameOverlord : MonoBehaviour
     {
      if(GameObject.FindGameObjectWithTag("Player"))
      {
-         UIOverlord.uiState = UIOverlord.UIState.Playing;
             if(UIOverlord.uiState == UIOverlord.UIState.Playing)
             {
+                if(gameState != GameState.done)
+                {
                 //Checks for living balls
                 if(GameObject.Find("ball(Clone)") == null)
                      {
                      if(numOfBalls<= 0)
                         {
                             UIOverlord.uiState = UIOverlord.UIState.GameOver;
-
+                            gameState = GameState.done;
                         }
                     }
                     if(numOfBricks <= 0)
                     {
                         UIOverlord.uiState = UIOverlord.UIState.Victory;
+                        gameState = GameState.done;
                     }
                }
-
+            }
             //Updates text info
             scoreText.text = "Score: " + playerScore.ToString();
-            ballText.text = "Boulders left: " + numOfBalls.ToString();
+            ballText.text = " " + numOfBalls.ToString();
          }
         timr = 1f;
     

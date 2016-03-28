@@ -9,10 +9,16 @@ public class BallShooter : MonoBehaviour
     public float minRot = -30f;
     public float rotka = 0;
     private float timr = 1f;
+    public Animator anim;
+    public AudioClip catapult;
+    public AudioSource audiosrc;
     
 	void Start ()
     {
+    UIOverlord.uiState = UIOverlord.UIState.Playing;
 	GameOverlord.gameState = GameOverlord.GameState.shooting;
+    GameOverlord.numOfBalls = 3;
+    GameOverlord.playerScore = 0;
 	}
 	
 
@@ -42,14 +48,18 @@ void Update ()
         
         
         //Ball shooting
-        if(Input.GetButtonDown("Fire1"))
+        if(GameOverlord.numOfBalls > 0)
         {
-        
-           Rigidbody2D clone = Instantiate(ball,transform.position,transform.rotation) as Rigidbody2D;
-           clone.AddForce(gameObject.transform.up);
-           GameOverlord.gameState = GameOverlord.GameState.bouncing;
+            if(Input.GetButtonDown("Fire1"))
+            {
+                audiosrc.clip = catapult;
+                audiosrc.Play();
+                anim.SetTrigger("fire");
+               Rigidbody2D clone = Instantiate(ball,transform.position,transform.rotation) as Rigidbody2D;
+               clone.AddForce(gameObject.transform.up);
+               GameOverlord.gameState = GameOverlord.GameState.bouncing;
+            }
         }
-        
     }
 
 }

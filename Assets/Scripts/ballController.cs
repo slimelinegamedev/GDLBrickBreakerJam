@@ -6,13 +6,18 @@ public class BallController : MonoBehaviour
     public float ballSpeed = 5f;
     private Rigidbody2D rigidBall;
     private RaycastHit2D rayHit;
+    public AudioClip hitSoundBrick;
+    public AudioClip hitSoundWood;
 
+    private AudioSource audiosrc;
+
+    
 void Start()
     {
         rigidBall = GetComponent<Rigidbody2D>();
         StopCoroutine("TimerRoutine");
         StartCoroutine("TimerRoutine");
-        
+        audiosrc = GetComponent<AudioSource>();
     }
     
     //Temporarily disables collider to avoid collision issues when shooting the ball
@@ -54,11 +59,29 @@ void UpdateHitMarker()
 
 void OnCollisionEnter2D(Collision2D col)
     {
+    if(col.gameObject.tag != "Player")
+    {
+       if(col.gameObject.tag != "Wall")
+       {
+        audiosrc.clip = hitSoundBrick;
+       }else
+       {
+        audiosrc.clip = hitSoundWood;
+       }
+        
+        if(!audiosrc.isPlaying)
+    {
+      audiosrc.pitch = Random.Range(0.95f,1.05f);
+      audiosrc.Play();
+    }
+    
+    }
         //Randomize bump angle
         rigidBall.AddForce(rigidBall.velocity.normalized + new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
         //Destroys brick on collision
     if (col.gameObject.tag == "Brick")
         {
+        
             col.gameObject.SendMessage("DestroyBrick");
             
         }
