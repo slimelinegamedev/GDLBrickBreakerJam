@@ -36,17 +36,21 @@ public class GameOverlord : MonoBehaviour
                 //Checks for living balls
                 if(GameObject.Find("ball(Clone)") == null)
                      {
-                     if(numOfBalls<= 0)
+                    if(numOfBalls<= 0)
                         {
                             UIOverlord.uiState = UIOverlord.UIState.GameOver;
                             gameState = GameState.done;
                         }
+                     
+                     
                     }
                     if(numOfBricks <= 0)
-                    {
-                        UIOverlord.uiState = UIOverlord.UIState.Victory;
-                        gameState = GameState.done;
-                    }
+                        {
+                            UIOverlord.uiState = UIOverlord.UIState.Victory;
+                            gameState = GameState.done;
+                        }
+                    
+                   
                }
             }
             //Updates text info
